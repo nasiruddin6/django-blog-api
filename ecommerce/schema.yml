@@ -1,0 +1,1783 @@
+openapi: 3.0.3
+info:
+  title: E-commerce Product Management API
+  version: 1.0.0
+  description: API documentation for product management.
+paths:
+  /api/v1/brands/:
+    get:
+      operationId: brands_list
+      description: Retrieve all brands or create a new brand.
+      summary: List and Create Brands
+      tags:
+      - Brand
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Brand'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+        '400':
+          description: Validation error.
+    post:
+      operationId: brands_create
+      description: Retrieve all brands or create a new brand.
+      summary: List and Create Brands
+      tags:
+      - Brand
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Brand'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Brand'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+        '400':
+          description: Validation error.
+  /api/v1/brands/{id}/:
+    get:
+      operationId: brands_retrieve
+      description: Retrieve, update or delete a brand using its ID.
+      summary: Retrieve, Update and Delete Brand
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Brand ID
+        required: true
+      tags:
+      - Brand
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+        '204':
+          description: Brand deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Brand not found.
+    put:
+      operationId: brands_update
+      description: Retrieve, update or delete a brand using its ID.
+      summary: Retrieve, Update and Delete Brand
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Brand ID
+        required: true
+      tags:
+      - Brand
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Brand'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+        '204':
+          description: Brand deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Brand not found.
+    patch:
+      operationId: brands_partial_update
+      description: Retrieve, update or delete a brand using its ID.
+      summary: Retrieve, Update and Delete Brand
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Brand ID
+        required: true
+      tags:
+      - Brand
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedBrand'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedBrand'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedBrand'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+        '204':
+          description: Brand deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Brand not found.
+    delete:
+      operationId: brands_destroy
+      description: Retrieve, update or delete a brand using its ID.
+      summary: Retrieve, Update and Delete Brand
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Brand ID
+        required: true
+      tags:
+      - Brand
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+        '204':
+          description: Brand deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Brand not found.
+  /api/v1/categories/:
+    get:
+      operationId: categories_list
+      description: Retrieve all categories or create a new category.
+      summary: List and Create Categories
+      tags:
+      - Category
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+        '400':
+          description: Validation error.
+    post:
+      operationId: categories_create
+      description: Retrieve all categories or create a new category.
+      summary: List and Create Categories
+      tags:
+      - Category
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Category'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+        '400':
+          description: Validation error.
+  /api/v1/categories/{id}/:
+    get:
+      operationId: categories_retrieve
+      description: Retrieve, update or delete a category using its ID.
+      summary: Retrieve, Update and Delete Category
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Category ID
+        required: true
+      tags:
+      - Category
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+        '204':
+          description: Category deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Category not found.
+    put:
+      operationId: categories_update
+      description: Retrieve, update or delete a category using its ID.
+      summary: Retrieve, Update and Delete Category
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Category ID
+        required: true
+      tags:
+      - Category
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Category'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+        '204':
+          description: Category deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Category not found.
+    patch:
+      operationId: categories_partial_update
+      description: Retrieve, update or delete a category using its ID.
+      summary: Retrieve, Update and Delete Category
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Category ID
+        required: true
+      tags:
+      - Category
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCategory'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCategory'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCategory'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+        '204':
+          description: Category deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Category not found.
+    delete:
+      operationId: categories_destroy
+      description: Retrieve, update or delete a category using its ID.
+      summary: Retrieve, Update and Delete Category
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Category ID
+        required: true
+      tags:
+      - Category
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+        '204':
+          description: Category deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Category not found.
+  /api/v1/product-attributes/:
+    get:
+      operationId: product_attributes_list
+      description: Retrieve all product attributes or create a new attribute.
+      summary: List and Create Product Attributes
+      tags:
+      - Product Attribute
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductAttribute'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductAttribute'
+          description: ''
+        '400':
+          description: Validation error.
+    post:
+      operationId: product_attributes_create
+      description: Retrieve all product attributes or create a new attribute.
+      summary: List and Create Product Attributes
+      tags:
+      - Product Attribute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductAttribute'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProductAttribute'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductAttribute'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductAttribute'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductAttribute'
+          description: ''
+        '400':
+          description: Validation error.
+  /api/v1/product-attributes/{id}/:
+    get:
+      operationId: product_attributes_retrieve
+      description: Retrieve, update or delete a product attribute using its ID.
+      summary: Retrieve, Update and Delete Product Attribute
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product attribute ID
+        required: true
+      tags:
+      - Product Attribute
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductAttribute'
+          description: ''
+        '204':
+          description: Attribute deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Attribute not found.
+    put:
+      operationId: product_attributes_update
+      description: Retrieve, update or delete a product attribute using its ID.
+      summary: Retrieve, Update and Delete Product Attribute
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product attribute ID
+        required: true
+      tags:
+      - Product Attribute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductAttribute'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProductAttribute'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductAttribute'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductAttribute'
+          description: ''
+        '204':
+          description: Attribute deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Attribute not found.
+    patch:
+      operationId: product_attributes_partial_update
+      description: Retrieve, update or delete a product attribute using its ID.
+      summary: Retrieve, Update and Delete Product Attribute
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product attribute ID
+        required: true
+      tags:
+      - Product Attribute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProductAttribute'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProductAttribute'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProductAttribute'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductAttribute'
+          description: ''
+        '204':
+          description: Attribute deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Attribute not found.
+    delete:
+      operationId: product_attributes_destroy
+      description: Retrieve, update or delete a product attribute using its ID.
+      summary: Retrieve, Update and Delete Product Attribute
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product attribute ID
+        required: true
+      tags:
+      - Product Attribute
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductAttribute'
+          description: ''
+        '204':
+          description: Attribute deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Attribute not found.
+  /api/v1/product-images/:
+    get:
+      operationId: product_images_list
+      summary: List Product Images
+      tags:
+      - Product Image
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductImage'
+          description: ''
+    post:
+      operationId: product_images_create
+      summary: Upload Product Image
+      tags:
+      - Product Image
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductImage'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductImage'
+          description: ''
+  /api/v1/product-images/{id}/:
+    get:
+      operationId: product_images_retrieve
+      description: Retrieve, replace, partially update or delete a product image.
+      summary: Retrieve, Update and Delete Product Image
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product image ID
+        required: true
+      tags:
+      - Product Image
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductImage'
+          description: ''
+        '204':
+          description: Image deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Image not found.
+    put:
+      operationId: product_images_update
+      description: Retrieve, replace, partially update or delete a product image.
+      summary: Retrieve, Update and Delete Product Image
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product image ID
+        required: true
+      tags:
+      - Product Image
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductImage'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductImage'
+          description: ''
+        '204':
+          description: Image deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Image not found.
+    patch:
+      operationId: product_images_partial_update
+      description: Retrieve, replace, partially update or delete a product image.
+      summary: Retrieve, Update and Delete Product Image
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product image ID
+        required: true
+      tags:
+      - Product Image
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProductImage'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductImage'
+          description: ''
+        '204':
+          description: Image deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Image not found.
+    delete:
+      operationId: product_images_destroy
+      description: Retrieve, replace, partially update or delete a product image.
+      summary: Retrieve, Update and Delete Product Image
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product image ID
+        required: true
+      tags:
+      - Product Image
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductImage'
+          description: ''
+        '204':
+          description: Image deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Image not found.
+  /api/v1/product-variants/:
+    get:
+      operationId: product_variants_list
+      description: Retrieve all product variants or create a new variant.
+      summary: List and Create Product Variants
+      tags:
+      - Product Variant
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductVariant'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductVariant'
+          description: ''
+        '400':
+          description: Validation error.
+    post:
+      operationId: product_variants_create
+      description: Retrieve all product variants or create a new variant.
+      summary: List and Create Product Variants
+      tags:
+      - Product Variant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductVariant'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProductVariant'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductVariant'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductVariant'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductVariant'
+          description: ''
+        '400':
+          description: Validation error.
+  /api/v1/product-variants/{id}/:
+    get:
+      operationId: product_variants_retrieve
+      description: Retrieve, update or delete a product variant using its ID.
+      summary: Retrieve, Update and Delete Product Variant
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product variant ID
+        required: true
+      tags:
+      - Product Variant
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductVariant'
+          description: ''
+        '204':
+          description: Variant deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Variant not found.
+    put:
+      operationId: product_variants_update
+      description: Retrieve, update or delete a product variant using its ID.
+      summary: Retrieve, Update and Delete Product Variant
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product variant ID
+        required: true
+      tags:
+      - Product Variant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductVariant'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProductVariant'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductVariant'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductVariant'
+          description: ''
+        '204':
+          description: Variant deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Variant not found.
+    patch:
+      operationId: product_variants_partial_update
+      description: Retrieve, update or delete a product variant using its ID.
+      summary: Retrieve, Update and Delete Product Variant
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product variant ID
+        required: true
+      tags:
+      - Product Variant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProductVariant'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProductVariant'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProductVariant'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductVariant'
+          description: ''
+        '204':
+          description: Variant deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Variant not found.
+    delete:
+      operationId: product_variants_destroy
+      description: Retrieve, update or delete a product variant using its ID.
+      summary: Retrieve, Update and Delete Product Variant
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product variant ID
+        required: true
+      tags:
+      - Product Variant
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductVariant'
+          description: ''
+        '204':
+          description: Variant deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Variant not found.
+  /api/v1/products/:
+    get:
+      operationId: products_list
+      description: Retrieve all products or create a new product.
+      summary: List and Create Products
+      tags:
+      - Product
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+        '400':
+          description: Validation error.
+    post:
+      operationId: products_create
+      description: Retrieve all products or create a new product.
+      summary: List and Create Products
+      tags:
+      - Product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Product'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Product'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+        '400':
+          description: Validation error.
+  /api/v1/products/{id}/:
+    get:
+      operationId: products_retrieve
+      description: Retrieve, update or delete a product using its ID.
+      summary: Retrieve, Update and Delete Product
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product ID
+        required: true
+      tags:
+      - Product
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+        '204':
+          description: Product deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Product not found.
+    put:
+      operationId: products_update
+      description: Retrieve, update or delete a product using its ID.
+      summary: Retrieve, Update and Delete Product
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product ID
+        required: true
+      tags:
+      - Product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Product'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Product'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+        '204':
+          description: Product deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Product not found.
+    patch:
+      operationId: products_partial_update
+      description: Retrieve, update or delete a product using its ID.
+      summary: Retrieve, Update and Delete Product
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product ID
+        required: true
+      tags:
+      - Product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProduct'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProduct'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProduct'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+        '204':
+          description: Product deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Product not found.
+    delete:
+      operationId: products_destroy
+      description: Retrieve, update or delete a product using its ID.
+      summary: Retrieve, Update and Delete Product
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: pk
+        schema:
+          type: integer
+        description: Product ID
+        required: true
+      tags:
+      - Product
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+        '204':
+          description: Product deleted successfully.
+        '400':
+          description: Validation error.
+        '404':
+          description: Product not found.
+components:
+  schemas:
+    Brand:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - name
+      - slug
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+        parent:
+          type: integer
+          nullable: true
+        parent_name:
+          type: string
+          readOnly: true
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - name
+      - parent_name
+      - slug
+    PatchedBrand:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+        parent:
+          type: integer
+          nullable: true
+        parent_name:
+          type: string
+          readOnly: true
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedProduct:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        sku:
+          type: string
+          maxLength: 50
+        brand:
+          type: integer
+          nullable: true
+        brand_name:
+          type: string
+          readOnly: true
+        category:
+          type: integer
+        category_name:
+          type: string
+          readOnly: true
+        description:
+          type: string
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        discount_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          nullable: true
+        stock:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        is_featured:
+          type: boolean
+        is_active:
+          type: boolean
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductImage'
+          readOnly: true
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductVariant'
+          readOnly: true
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductAttribute'
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedProductAttribute:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        product:
+          type: integer
+        name:
+          type: string
+          maxLength: 100
+        value:
+          type: string
+          maxLength: 200
+    PatchedProductImage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        product:
+          type: integer
+        image:
+          type: string
+          format: uri
+        alt_text:
+          type: string
+          maxLength: 200
+        is_primary:
+          type: boolean
+        display_order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedProductVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        product:
+          type: integer
+        name:
+          type: string
+          maxLength: 100
+        sku:
+          type: string
+          maxLength: 50
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        stock:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        is_active:
+          type: boolean
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        sku:
+          type: string
+          maxLength: 50
+        brand:
+          type: integer
+          nullable: true
+        brand_name:
+          type: string
+          readOnly: true
+        category:
+          type: integer
+        category_name:
+          type: string
+          readOnly: true
+        description:
+          type: string
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        discount_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          nullable: true
+        stock:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        is_featured:
+          type: boolean
+        is_active:
+          type: boolean
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductImage'
+          readOnly: true
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductVariant'
+          readOnly: true
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductAttribute'
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - attributes
+      - brand_name
+      - category
+      - category_name
+      - created_at
+      - id
+      - images
+      - name
+      - price
+      - sku
+      - slug
+      - updated_at
+      - variants
+    ProductAttribute:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        product:
+          type: integer
+        name:
+          type: string
+          maxLength: 100
+        value:
+          type: string
+          maxLength: 200
+      required:
+      - id
+      - name
+      - product
+      - value
+    ProductImage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        product:
+          type: integer
+        image:
+          type: string
+          format: uri
+        alt_text:
+          type: string
+          maxLength: 200
+        is_primary:
+          type: boolean
+        display_order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - image
+      - product
+    ProductVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        product:
+          type: integer
+        name:
+          type: string
+          maxLength: 100
+        sku:
+          type: string
+          maxLength: 50
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        stock:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        is_active:
+          type: boolean
+      required:
+      - id
+      - name
+      - price
+      - product
+      - sku
+    StatusEnum:
+      enum:
+      - draft
+      - published
+      - archived
+      type: string
+      description: |-
+        * `draft` - Draft
+        * `published` - Published
+        * `archived` - Archived
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

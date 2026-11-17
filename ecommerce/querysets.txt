@@ -1,0 +1,111 @@
+## Django QuerySet Practice List
+
+### 1. Basic QuerySet
+
+1. `all()`
+2. `get()`
+3. `filter()`
+4. `exclude()`
+5. `first()`
+6. `last()`
+7. `exists()`
+8. `count()`
+
+### 2. Field Lookups
+
+9. `exact`
+10. `iexact`
+11. `contains`
+12. `icontains`
+13. `startswith`
+14. `istartswith`
+15. `endswith`
+16. `iendswith`
+17. `gt`
+18. `gte`
+19. `lt`
+20. `lte`
+21. `in`
+22. `range`
+23. `isnull`
+24. `date`
+25. `year`
+26. `month`
+27. `day`
+
+### 3. Ordering & Slicing
+
+28. `order_by()`
+29. `reverse()`
+30. QuerySet Slicing
+31. `distinct()`
+
+### 4. Values & Fields
+
+32. `values()`
+33. `values_list()`
+34. `only()`
+35. `defer()`
+36. `latest()`
+37. `earliest()`
+
+### 5. Relationship Queries
+
+38. `select_related()`
+39. `prefetch_related()`
+40. `select_related()` with `filter()`
+41. Reverse Relationship Query
+42. ForeignKey Lookup
+43. Nested Relationship Lookup
+
+### 6. Aggregation & Annotation
+
+44. `aggregate()`
+45. `annotate()`
+46. `Count()`
+47. `Sum()`
+48. `Avg()`
+49. `Max()`
+50. `Min()`
+
+### 7. Q & F Expressions
+
+51. `Q()`
+52. `F()`
+53. AND Condition
+54. OR Condition
+55. NOT Condition
+56. Field-to-Field Comparison
+
+### 8. Create & Update
+
+57. `create()`
+58. `get_or_create()`
+59. `update_or_create()`
+60. `bulk_create()`
+61. `bulk_update()`
+62. `update()`
+63. `delete()`
+
+### 9. Advanced QuerySet
+
+64. `Subquery()`
+65. `OuterRef()`
+66. `Exists()`
+67. `Case()`
+68. `When()`
+69. `Value()`
+70. `ExpressionWrapper()`
+71. `Coalesce()`
+72. `Greatest()`
+73. `Least()`
+
+### 10. Database Performance
+
+74. N+1 Query Problem
+75. Query Optimization
+76. `iterator()`
+77. `explain()`
+78. QuerySet Caching
+79. Database Indexing
+80. `transaction.atomic()`
